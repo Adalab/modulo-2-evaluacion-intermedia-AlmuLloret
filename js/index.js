@@ -34,7 +34,7 @@ function handleClickButton (ev){
     else if(betNumber.value > randomNumber){
         clueMessage.innerHTML='Demasiado alto';
     }
-    else if(betNumber.value === randomNumber){
+    else {
         clueMessage.innerHTML='¡Has ganado campeona!'; 
     }
     counterFx(); 
