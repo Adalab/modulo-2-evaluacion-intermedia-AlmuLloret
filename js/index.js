@@ -22,7 +22,7 @@ function counterFx(){
 }
 
 function handleClickButton (ev){
-    ev.preventDefault; 
+    ev.preventDefault(); 
     console.log ('Número de la jugadora: ' +betNumber.value); 
        
     if (betNumber.value > 100 || betNumber.value < 0 ){
