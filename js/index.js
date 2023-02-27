@@ -21,24 +21,40 @@ function counterFx(){
     counterMessage.innerHTML=`Número de intentos: ${counter}`; 
 }
 
-function handleClickButton (ev){
-    ev.preventDefault(); 
+function checkNumber(){
+    
+    const valueNumber=parseInt(betNumber.value);
     console.log ('Número de la jugadora: ' +betNumber.value); 
-       
-    if (betNumber.value > 100 || betNumber.value < 0 ){
-        clueMessage.innerHTML='¡El número debe estar entre 1 y 100!'; 
+    
+    if (isNaN(valueNumber)){
+        paintMsj('Por favor, introduce un número'); 
     }
-    else if (betNumber.value < randomNumber){
-        clueMessage.innerHTML='Demasiado bajo';
+    else if (betNumber.value > 100 || valueNumber < 0 ){
+        paintMsj('¡El número debe estar entre 1 y 100!'); 
     }
-    else if(betNumber.value > randomNumber){
-        clueMessage.innerHTML='Demasiado alto';
+    else if (valueNumber < randomNumber){
+        paintMsj('Demasiado bajo');
+    }
+    else if(valueNumber > randomNumber){
+        paintMsj('Demasiado alto');
     }
     else {
-        clueMessage.innerHTML='¡Has ganado campeona!'; 
+        paintMsj('¡Has ganado campeona!'); 
     }
-    counterFx(); 
+    
+
 }
+
+function handleClickButton (ev){
+    ev.preventDefault(); 
+    checkNumber()
+    counterFx(); 
+    
+}
+
+function paintMsj(msj) {
+    clueMessage.innerHTML = msj;
+  }
 
 // EVENTOS 
 
